@@ -1,5 +1,8 @@
 input.number {
     max-width: 30px;
+    height: 40px;
+    border-radius: 4px;
+    margin: auto 0.2em;
     color: black;
     background-color: whitesmoke;
 }
