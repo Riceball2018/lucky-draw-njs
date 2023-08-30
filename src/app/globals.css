@@ -42,7 +42,8 @@ button:hover {
 }
 
 button:disabled {
-  background-color: #d1f3f1;
+  background-color: #354d4b;
+  color: gray;
 }
 
 h1 {

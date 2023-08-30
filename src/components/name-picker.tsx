@@ -36,6 +36,7 @@ function PickHistory({pickInfos} : {pickInfos: PickInfo[]}) {
 function PickList({nameList} : {nameList: string[]}) {
     return (
         <>
+            <p>{nameList.length} names</p>
             <ul>
                 {nameList.map(name => <li key={name}>{name}</li>)}
             </ul>
@@ -159,19 +160,23 @@ export default function NamePicker() {
     };
     
     return (
-        <div>
-            <div style={{display: numPicks === 1 ? 'block' : 'none'}}><p id={styles.displayName}>{pickedName}</p></div>
-            <div style={{display: numPicks === 1 ? 'none' : 'block'}}>
+        <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-rows-4">
+            <div className="lg:row-start-1 lg:row-span-2" style={{display: numPicks === 1 ? 'block' : 'none'}}><p id={styles.displayName}>{pickedName}</p></div>
+            <div className="lg:row-start-1 lg:row-span-2" style={{display: numPicks === 1 ? 'none' : 'block'}}>
                 <h1>Picked names</h1>
                 <ul >
                     {drawnList.map(name => <li key={name}>{name}</li>)}
                 </ul>
             </div>
-            <input className={styles.number} type='text' onChange={handleInput} value={numPicks.toString()} pattern='^[0-9]+$'></input>
-            <button onClick={handleDraw} disabled={!canDraw}>Draw</button>
-            <CsvReader setList={setNameList}></CsvReader>
-            <PickList nameList={nameList}></PickList>
-            <PickHistory pickInfos={pickHistory}></PickHistory>
+            <div className="row-start-3 flex flex-row justify-center items-center">
+                <input className={styles.number} type='text' onChange={handleInput} value={numPicks.toString()} pattern='^[0-9]+$'></input>
+                <button onClick={handleDraw} disabled={!canDraw}>Draw</button>
+                <CsvReader setList={setNameList}></CsvReader>
+            </div>
+            <div className="row-start-4 max-h-36">
+                <PickList nameList={nameList}></PickList>
+                <PickHistory pickInfos={pickHistory}></PickHistory>
+            </div>
         </div>
     )
 }
