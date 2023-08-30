@@ -1,0 +1,14 @@
+input.number {
+    max-width: 30px;
+    color: black;
+    background-color: whitesmoke;
+}
+
+#displayName {
+    font-size: 96px;
+    color: linear-gradient(
+        to bottom,
+        var(--foreground-rgb),
+        var(--foreground-rgb-end)
+    );
+}
