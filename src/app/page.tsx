@@ -13,7 +13,7 @@ export default function Home() {
           height={110}
           priority
         />
-        <h1>Wanderlust Lucky Draw</h1>
+        <h1>Lucky Draw</h1>
       </div>
 
       <div >
